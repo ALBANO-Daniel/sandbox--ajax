@@ -1,22 +1,16 @@
-const showHour = document.getElementById('showHour');
-const dateHour = document.getElementById('dateHour');
+const showStudents = document.getElementById('showStudents');
+const showStudentsBtn = document.getElementById('showStudentsBtn');
 
-
-const showDatas = (datas) => {
-    let dateFromServer = datas;
-    dateHour.innerHTML = dateFromServer;
-}
-
-showHour.addEventListener('click', ()=> {
-
-    fetch('/ajaxGetDate.php') // what i want to get 
-
-    .then((response)=>{  //response - json
-        return response.json();
-    }) 
-    .then((datas)=>{ // the return from the back ( ex: json file )
-        let dateFromServer = datas;
-        dateHour.innerHTML = dateFromServer;
+showStudentsBtn.addEventListener('click', ()=> {
+    
+    fetch('/ajaxGetStudents.php')
+    // even though we made a json on php file, we still 
+    // need to .json again here, to process the string(json) from /ajaxGetDate.php
+    .then( response => response.json() ) 
+    .then( (data) => {
+        showStudents.innerHTML = '';
+        data.forEach( student => {
+            showStudents.innerHTML += `<li>${student}</li>`
+        })
     })
-    // anything here is async with fetch 
 })

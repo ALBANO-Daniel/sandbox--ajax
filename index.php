@@ -8,10 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Date and Time: </p>
-    <div id="dateHour"></div>
-    <button id="showHour">aficcher lheure</button>
+    <p>Students: </p>
+    <ul id="showStudents"></ul>
+    <button id="showStudentsBtn">show students</button>
 
-    <script src="./main.js"></script>
+<script src="./main.js"></script>
 </body>
 </html>
